@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.12 on darwin)" generated="20251104 19:48:41.796" rpa="false" schemaversion="4">
+<suite id="s1" name="Basic Robot" source="/Users/apple/Documents/python_project/pythonProject/robot_proj/basic_robot.robot">
+<test id="s1-t1" name="Example Test" line="12">
+<kw name="Set Variable" library="BuiltIn">
+<var>${LOCAL_VAR}</var>
+<arg>I am local</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20251104 19:48:41.875" level="INFO">${LOCAL_VAR} = I am local</msg>
+<status status="PASS" starttime="20251104 19:48:41.875" endtime="20251104 19:48:41.875"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20251104 19:48:41.876" level="INFO">John</msg>
+<status status="PASS" starttime="20251104 19:48:41.875" endtime="20251104 19:48:41.876"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${LOCAL_VAR}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20251104 19:48:41.876" level="INFO">I am local</msg>
+<status status="PASS" starttime="20251104 19:48:41.876" endtime="20251104 19:48:41.876"/>
+</kw>
+<status status="PASS" starttime="20251104 19:48:41.875" endtime="20251104 19:48:41.876"/>
+</test>
+<test id="s1-t2" name="Check Age" line="18">
+<kw name="Set Variable" library="BuiltIn">
+<var>${age}</var>
+<arg>20</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20251104 19:48:41.877" level="INFO">${age} = 20</msg>
+<status status="PASS" starttime="20251104 19:48:41.877" endtime="20251104 19:48:41.877"/>
+</kw>
+<if>
+<branch type="IF" condition="${age} &gt;= 18">
+<kw name="Log" library="BuiltIn">
+<arg>Adult</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20251104 19:48:41.879" level="INFO">Adult</msg>
+<status status="PASS" starttime="20251104 19:48:41.878" endtime="20251104 19:48:41.879"/>
+</kw>
+<status status="PASS" starttime="20251104 19:48:41.877" endtime="20251104 19:48:41.879"/>
+</branch>
+<branch type="ELSE IF" condition="${age} &gt;= 13">
+<kw name="Log" library="BuiltIn">
+<arg>Teen</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20251104 19:48:41.879" endtime="20251104 19:48:41.879"/>
+</kw>
+<status status="NOT RUN" starttime="20251104 19:48:41.879" endtime="20251104 19:48:41.880"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" library="BuiltIn">
+<arg>Child</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20251104 19:48:41.880" endtime="20251104 19:48:41.880"/>
+</kw>
+<status status="NOT RUN" starttime="20251104 19:48:41.880" endtime="20251104 19:48:41.880"/>
+</branch>
+<status status="PASS" starttime="20251104 19:48:41.877" endtime="20251104 19:48:41.880"/>
+</if>
+<status status="PASS" starttime="20251104 19:48:41.876" endtime="20251104 19:48:41.880"/>
+</test>
+<test id="s1-t3" name="Validation Example" line="28">
+<kw name="Set Variable" library="BuiltIn">
+<var>${value}</var>
+<arg>10</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20251104 19:48:41.882" level="INFO">${value} = 10</msg>
+<status status="PASS" starttime="20251104 19:48:41.881" endtime="20251104 19:48:41.882"/>
+</kw>
+<kw name="Should Be Equal As Numbers" library="BuiltIn">
+<arg>${value}</arg>
+<arg>11</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<msg timestamp="20251104 19:48:41.883" level="FAIL">10.0 != 11.0</msg>
+<status status="FAIL" starttime="20251104 19:48:41.882" endtime="20251104 19:48:41.884"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${value}</arg>
+<arg>5</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="NOT RUN" starttime="20251104 19:48:41.884" endtime="20251104 19:48:41.884"/>
+</kw>
+<status status="FAIL" starttime="20251104 19:48:41.881" endtime="20251104 19:48:41.885">10.0 != 11.0</status>
+</test>
+<test id="s1-t4" name="Loop Example" line="33">
+<kw name="Create List" library="BuiltIn">
+<var>@{items}</var>
+<arg>one</arg>
+<arg>two</arg>
+<arg>three</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20251104 19:48:41.891" level="INFO">@{items} = [ one | two | three ]</msg>
+<status status="PASS" starttime="20251104 19:48:41.890" endtime="20251104 19:48:41.891"/>
+</kw>
+<for flavor="IN">
+<var>${item}</var>
+<value>@{items}</value>
+<iter>
+<var name="${item}">one</var>
+<kw name="Log" library="BuiltIn">
+<arg>${item}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20251104 19:48:41.895" level="INFO">one</msg>
+<status status="PASS" starttime="20251104 19:48:41.894" endtime="20251104 19:48:41.895"/>
+</kw>
+<status status="PASS" starttime="20251104 19:48:41.894" endtime="20251104 19:48:41.895"/>
+</iter>
+<iter>
+<var name="${item}">two</var>
+<kw name="Log" library="BuiltIn">
+<arg>${item}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20251104 19:48:41.895" level="INFO">two</msg>
+<status status="PASS" starttime="20251104 19:48:41.895" endtime="20251104 19:48:41.895"/>
+</kw>
+<status status="PASS" starttime="20251104 19:48:41.895" endtime="20251104 19:48:41.896"/>
+</iter>
+<iter>
+<var name="${item}">three</var>
+<kw name="Log" library="BuiltIn">
+<arg>${item}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20251104 19:48:41.896" level="INFO">three</msg>
+<status status="PASS" starttime="20251104 19:48:41.896" endtime="20251104 19:48:41.896"/>
+</kw>
+<status status="PASS" starttime="20251104 19:48:41.896" endtime="20251104 19:48:41.896"/>
+</iter>
+<status status="PASS" starttime="20251104 19:48:41.893" endtime="20251104 19:48:41.896"/>
+</for>
+<for flavor="IN">
+<var>${index}</var>
+<value>range(5)</value>
+<iter>
+<var name="${index}">range(5)</var>
+<kw name="Log" library="BuiltIn">
+<arg>${index}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20251104 19:48:41.897" level="INFO">range(5)</msg>
+<status status="PASS" starttime="20251104 19:48:41.897" endtime="20251104 19:48:41.897"/>
+</kw>
+<status status="PASS" starttime="20251104 19:48:41.896" endtime="20251104 19:48:41.897"/>
+</iter>
+<status status="PASS" starttime="20251104 19:48:41.896" endtime="20251104 19:48:41.897"/>
+</for>
+<status status="PASS" starttime="20251104 19:48:41.886" endtime="20251104 19:48:41.898"/>
+</test>
+<test id="s1-t5" name="Reverse String" line="44">
+<kw name="Set Variable" library="BuiltIn">
+<var>${text}</var>
+<arg>hello</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20251104 19:48:41.899" level="INFO">${text} = hello</msg>
+<status status="PASS" starttime="20251104 19:48:41.899" endtime="20251104 19:48:41.899"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${rev}</var>
+<arg>'${text}'[::-1]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20251104 19:48:41.899" level="INFO">${rev} = olleh</msg>
+<status status="PASS" starttime="20251104 19:48:41.899" endtime="20251104 19:48:41.899"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${rev}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20251104 19:48:41.900" level="INFO">olleh</msg>
+<status status="PASS" starttime="20251104 19:48:41.900" endtime="20251104 19:48:41.900"/>
+</kw>
+<status status="PASS" starttime="20251104 19:48:41.898" endtime="20251104 19:48:41.900"/>
+</test>
+<test id="s1-t6" name="Find Max Without Max Function" line="52">
+<kw name="Create List" library="BuiltIn">
+<var>@{nums}</var>
+<arg>4</arg>
+<arg>9</arg>
+<arg>2</arg>
+<arg>7</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20251104 19:48:41.901" level="INFO">@{nums} = [ 4 | 9 | 2 | 7 ]</msg>
+<status status="PASS" starttime="20251104 19:48:41.901" endtime="20251104 19:48:41.901"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${max}</var>
+<arg>${nums[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20251104 19:48:41.902" level="INFO">${max} = 4</msg>
+<status status="PASS" starttime="20251104 19:48:41.901" endtime="20251104 19:48:41.903"/>
+</kw>
+<for flavor="IN">
+<var>${num}</var>
+<value>@{nums}</value>
+<iter>
+<var name="${num}">4</var>
+<if>
+<branch type="IF" condition="${num} &gt; ${max}">
+<kw name="Set Variable" library="BuiltIn">
+<var>${max}</var>
+<arg>${num}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.904"/>
+</kw>
+<status status="NOT RUN" starttime="20251104 19:48:41.903" endtime="20251104 19:48:41.904"/>
+</branch>
+<status status="PASS" starttime="20251104 19:48:41.903" endtime="20251104 19:48:41.904"/>
+</if>
+<status status="PASS" starttime="20251104 19:48:41.903" endtime="20251104 19:48:41.904"/>
+</iter>
+<iter>
+<var name="${num}">9</var>
+<if>
+<branch type="IF" condition="${num} &gt; ${max}">
+<kw name="Set Variable" library="BuiltIn">
+<var>${max}</var>
+<arg>${num}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20251104 19:48:41.904" level="INFO">${max} = 9</msg>
+<status status="PASS" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.904"/>
+</kw>
+<status status="PASS" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.904"/>
+</branch>
+<status status="PASS" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.904"/>
+</if>
+<status status="PASS" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.904"/>
+</iter>
+<iter>
+<var name="${num}">2</var>
+<if>
+<branch type="IF" condition="${num} &gt; ${max}">
+<kw name="Set Variable" library="BuiltIn">
+<var>${max}</var>
+<arg>${num}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20251104 19:48:41.905" endtime="20251104 19:48:41.905"/>
+</kw>
+<status status="NOT RUN" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.905"/>
+</branch>
+<status status="PASS" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.905"/>
+</if>
+<status status="PASS" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.906"/>
+</iter>
+<iter>
+<var name="${num}">7</var>
+<if>
+<branch type="IF" condition="${num} &gt; ${max}">
+<kw name="Set Variable" library="BuiltIn">
+<var>${max}</var>
+<arg>${num}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20251104 19:48:41.906" endtime="20251104 19:48:41.906"/>
+</kw>
+<status status="NOT RUN" starttime="20251104 19:48:41.906" endtime="20251104 19:48:41.907"/>
+</branch>
+<status status="PASS" starttime="20251104 19:48:41.906" endtime="20251104 19:48:41.907"/>
+</if>
+<status status="PASS" starttime="20251104 19:48:41.906" endtime="20251104 19:48:41.907"/>
+</iter>
+<status status="PASS" starttime="20251104 19:48:41.903" endtime="20251104 19:48:41.907"/>
+</for>
+<kw name="Log" library="BuiltIn">
+<arg>Maximum number is: ${max}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20251104 19:48:41.907" level="INFO">Maximum number is: 9</msg>
+<status status="PASS" starttime="20251104 19:48:41.907" endtime="20251104 19:48:41.907"/>
+</kw>
+<status status="PASS" starttime="20251104 19:48:41.900" endtime="20251104 19:48:41.907"/>
+</test>
+<test id="s1-t7" name="Test User Login With Valid email" line="66">
+<kw name="Open login page">
+<msg timestamp="20251104 19:48:41.911" level="FAIL">No keyword with name 'Open login page' found.</msg>
+<status status="FAIL" starttime="20251104 19:48:41.911" endtime="20251104 19:48:41.912"/>
+</kw>
+<kw name="Enter Valid email">
+<status status="NOT RUN" starttime="20251104 19:48:41.915" endtime="20251104 19:48:41.915"/>
+</kw>
+<kw name="Click on continue">
+<status status="NOT RUN" starttime="20251104 19:48:41.920" endtime="20251104 19:48:41.920"/>
+</kw>
+<kw name="Validate user password screen">
+<status status="NOT RUN" starttime="20251104 19:48:41.921" endtime="20251104 19:48:41.921"/>
+</kw>
+<status status="FAIL" starttime="20251104 19:48:41.908" endtime="20251104 19:48:41.921">No keyword with name 'Open login page' found.</status>
+</test>
+<status status="FAIL" starttime="20251104 19:48:41.799" endtime="20251104 19:48:41.922"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="2" skip="0" id="s1" name="Basic Robot">Basic Robot</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
