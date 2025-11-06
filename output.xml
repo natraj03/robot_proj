@@ -1,298 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.12 on darwin)" generated="20251104 19:48:41.796" rpa="false" schemaversion="4">
-<suite id="s1" name="Basic Robot" source="/Users/apple/Documents/python_project/pythonProject/robot_proj/basic_robot.robot">
-<test id="s1-t1" name="Example Test" line="12">
-<kw name="Set Variable" library="BuiltIn">
-<var>${LOCAL_VAR}</var>
-<arg>I am local</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20251104 19:48:41.875" level="INFO">${LOCAL_VAR} = I am local</msg>
-<status status="PASS" starttime="20251104 19:48:41.875" endtime="20251104 19:48:41.875"/>
+<robot generator="Robot 6.0.2 (Python 3.10.7 on darwin)" generated="20251106 20:09:40.333" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Proj" source="/Users/apple/Documents/python_project/pythonProject/robot_proj">
+<suite id="s1-s1" name="Test Get User" source="/Users/apple/Documents/python_project/pythonProject/robot_proj/test_get_user.robot">
+<test id="s1-s1-t1" name="Fetch User Details" line="11">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>reqres</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20251106 20:09:46.256" level="INFO">Creating Session using : alias=reqres, url=https://reqres.in/api/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20251106 20:09:46.236" endtime="20251106 20:09:46.257"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>x-api-key=${API_KEY}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20251106 20:09:46.307" level="INFO">${headers} = {'x-api-key': 'reqres-free-v1'}</msg>
+<status status="PASS" starttime="20251106 20:09:46.266" endtime="20251106 20:09:46.307"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>reqres</arg>
+<arg>/users/1</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20251106 20:09:46.778" level="INFO">GET Request : url=https://reqres.in/api/users/1 
+ path_url=/api/users/1 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-api-key': 'reqres-free-v1'} 
+ body=None 
+ </msg>
+<msg timestamp="20251106 20:09:46.789" level="INFO">GET Response : url=https://reqres.in/api/users/1 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 06 Nov 2025 14:39:46 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-api-key', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Origin': 'http://localhost:5173', 'Etag': 'W/"334-JOZgDGSMKFdcho3+278oIhfV1XI"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '18', 'Ratelimit-Reset': '104', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=K3Nc9StSB8%2BnxYfzfcrjlm0CqTG%2BW7rTwU1Oog10%2BkA%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1762437269"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=K3Nc9StSB8%2BnxYfzfcrjlm0CqTG%2BW7rTwU1Oog10%2BkA%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1762437269"', 'Server': 'cloudflare', 'Vary': 'Origin, accept-encoding', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-Powered-By': 'ReqRes.in - Deploy backends in 30 seconds', 'X-Reqres-Docs': 'https://reqres.in', 'X-Reqres-Message': 'This API is powered by ReqRes. Deploy your own backend in 30 seconds!', 'X-Reqres-Templates': 'https://app.reqres.in/templates', 'X-Reqres-Upgrade': 'https://app.reqres.in/upgrade', 'X-Request-Id': 'd633117f-d1f3-8656-3331-af03b304c423', 'X-Xss-Protection': '1; mode=block', 'Age': '2717', 'Cache-Control': 'max-age=14400', 'cf-cache-status': 'HIT', 'Content-Encoding': 'gzip', 'CF-RAY': '99a5579d3b697f5d-MAA'} 
+ body={"data":{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."},"_meta":{"powered_by":"🚀 ReqRes - Deploy backends in 30 seconds","upgrade_url":"https://app.reqres.in/upgrade","docs_url":"https://reqres.in","template_gallery":"https://app.reqres.in/templates","message":"This API is powered by ReqRes. Deploy your own backend in 30 seconds!","features":["30 Second Backend Templates","Custom API Endpoints","Data Persistence","Real-time Analytics"],"upgrade_cta":"Upgrade to Pro for unlimited requests, custom endpoints, and data persistence"}} 
+ </msg>
+<msg timestamp="20251106 20:09:46.792" level="INFO">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20251106 20:09:46.793" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20251106 20:09:46.385" endtime="20251106 20:09:46.794"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>${name}</arg>
+<arg>Status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251104 19:48:41.876" level="INFO">John</msg>
-<status status="PASS" starttime="20251104 19:48:41.875" endtime="20251104 19:48:41.876"/>
+<msg timestamp="20251106 20:09:46.803" level="INFO">Status: 200</msg>
+<status status="PASS" starttime="20251106 20:09:46.796" endtime="20251106 20:09:46.803"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>${LOCAL_VAR}</arg>
+<arg>Body: ${response.text}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251104 19:48:41.876" level="INFO">I am local</msg>
-<status status="PASS" starttime="20251104 19:48:41.876" endtime="20251104 19:48:41.876"/>
+<msg timestamp="20251106 20:09:46.833" level="INFO">Body: {"data":{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."},"_meta":{"powered_by":"🚀 ReqRes - Deploy backends in 30 seconds","upgrade_url":"https://app.reqres.in/upgrade","docs_url":"https://reqres.in","template_gallery":"https://app.reqres.in/templates","message":"This API is powered by ReqRes. Deploy your own backend in 30 seconds!","features":["30 Second Backend Templates","Custom API Endpoints","Data Persistence","Real-time Analytics"],"upgrade_cta":"Upgrade to Pro for unlimited requests, custom endpoints, and data persistence"}}</msg>
+<status status="PASS" starttime="20251106 20:09:46.826" endtime="20251106 20:09:46.833"/>
 </kw>
-<status status="PASS" starttime="20251104 19:48:41.875" endtime="20251104 19:48:41.876"/>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<msg timestamp="20251106 20:09:46.837" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20251106 20:09:46.834" endtime="20251106 20:09:46.838"/>
+</kw>
+<kw name="To Json" library="RequestsLibrary">
+<var>${json}</var>
+<arg>${response.text}</arg>
+<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
+<msg timestamp="20251106 20:09:46.858" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20251106 20:09:46.868" level="INFO">To JSON using : content={"data":{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."},"_meta":{"powered_by":"🚀 ReqRes - Deploy backends in 30 seconds","upgrade_url":"https://app.reqres.in/upgrade","docs_url":"https://reqres.in","template_gallery":"https://app.reqres.in/templates","message":"This API is powered by ReqRes. Deploy your own backend in 30 seconds!","features":["30 Second Backend Templates","Custom API Endpoints","Data Persistence","Real-time Analytics"],"upgrade_cta":"Upgrade to Pro for unlimited requests, custom endpoints, and data persistence"}} </msg>
+<msg timestamp="20251106 20:09:46.877" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20251106 20:09:46.878" level="INFO">${json} = {'data': {'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-image.jpg'}, 'support': {'url': 'https://contentcaddy.io?ut...</msg>
+<status status="PASS" starttime="20251106 20:09:46.858" endtime="20251106 20:09:46.878"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${json["data"]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20251106 20:09:46.897" level="INFO">{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-image.jpg'}</msg>
+<status status="PASS" starttime="20251106 20:09:46.879" endtime="20251106 20:09:46.915"/>
+</kw>
+<status status="PASS" starttime="20251106 20:09:46.228" endtime="20251106 20:09:46.916"/>
 </test>
-<test id="s1-t2" name="Check Age" line="18">
-<kw name="Set Variable" library="BuiltIn">
-<var>${age}</var>
-<arg>20</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20251104 19:48:41.877" level="INFO">${age} = 20</msg>
-<status status="PASS" starttime="20251104 19:48:41.877" endtime="20251104 19:48:41.877"/>
-</kw>
-<if>
-<branch type="IF" condition="${age} &gt;= 18">
-<kw name="Log" library="BuiltIn">
-<arg>Adult</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251104 19:48:41.879" level="INFO">Adult</msg>
-<status status="PASS" starttime="20251104 19:48:41.878" endtime="20251104 19:48:41.879"/>
-</kw>
-<status status="PASS" starttime="20251104 19:48:41.877" endtime="20251104 19:48:41.879"/>
-</branch>
-<branch type="ELSE IF" condition="${age} &gt;= 13">
-<kw name="Log" library="BuiltIn">
-<arg>Teen</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" starttime="20251104 19:48:41.879" endtime="20251104 19:48:41.879"/>
-</kw>
-<status status="NOT RUN" starttime="20251104 19:48:41.879" endtime="20251104 19:48:41.880"/>
-</branch>
-<branch type="ELSE">
-<kw name="Log" library="BuiltIn">
-<arg>Child</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" starttime="20251104 19:48:41.880" endtime="20251104 19:48:41.880"/>
-</kw>
-<status status="NOT RUN" starttime="20251104 19:48:41.880" endtime="20251104 19:48:41.880"/>
-</branch>
-<status status="PASS" starttime="20251104 19:48:41.877" endtime="20251104 19:48:41.880"/>
-</if>
-<status status="PASS" starttime="20251104 19:48:41.876" endtime="20251104 19:48:41.880"/>
-</test>
-<test id="s1-t3" name="Validation Example" line="28">
-<kw name="Set Variable" library="BuiltIn">
-<var>${value}</var>
-<arg>10</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20251104 19:48:41.882" level="INFO">${value} = 10</msg>
-<status status="PASS" starttime="20251104 19:48:41.881" endtime="20251104 19:48:41.882"/>
-</kw>
-<kw name="Should Be Equal As Numbers" library="BuiltIn">
-<arg>${value}</arg>
-<arg>11</arg>
-<doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<msg timestamp="20251104 19:48:41.883" level="FAIL">10.0 != 11.0</msg>
-<status status="FAIL" starttime="20251104 19:48:41.882" endtime="20251104 19:48:41.884"/>
-</kw>
-<kw name="Should Not Be Equal" library="BuiltIn">
-<arg>${value}</arg>
-<arg>5</arg>
-<doc>Fails if the given objects are equal.</doc>
-<status status="NOT RUN" starttime="20251104 19:48:41.884" endtime="20251104 19:48:41.884"/>
-</kw>
-<status status="FAIL" starttime="20251104 19:48:41.881" endtime="20251104 19:48:41.885">10.0 != 11.0</status>
-</test>
-<test id="s1-t4" name="Loop Example" line="33">
-<kw name="Create List" library="BuiltIn">
-<var>@{items}</var>
-<arg>one</arg>
-<arg>two</arg>
-<arg>three</arg>
-<doc>Returns a list containing given items.</doc>
-<msg timestamp="20251104 19:48:41.891" level="INFO">@{items} = [ one | two | three ]</msg>
-<status status="PASS" starttime="20251104 19:48:41.890" endtime="20251104 19:48:41.891"/>
-</kw>
-<for flavor="IN">
-<var>${item}</var>
-<value>@{items}</value>
-<iter>
-<var name="${item}">one</var>
-<kw name="Log" library="BuiltIn">
-<arg>${item}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251104 19:48:41.895" level="INFO">one</msg>
-<status status="PASS" starttime="20251104 19:48:41.894" endtime="20251104 19:48:41.895"/>
-</kw>
-<status status="PASS" starttime="20251104 19:48:41.894" endtime="20251104 19:48:41.895"/>
-</iter>
-<iter>
-<var name="${item}">two</var>
-<kw name="Log" library="BuiltIn">
-<arg>${item}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251104 19:48:41.895" level="INFO">two</msg>
-<status status="PASS" starttime="20251104 19:48:41.895" endtime="20251104 19:48:41.895"/>
-</kw>
-<status status="PASS" starttime="20251104 19:48:41.895" endtime="20251104 19:48:41.896"/>
-</iter>
-<iter>
-<var name="${item}">three</var>
-<kw name="Log" library="BuiltIn">
-<arg>${item}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251104 19:48:41.896" level="INFO">three</msg>
-<status status="PASS" starttime="20251104 19:48:41.896" endtime="20251104 19:48:41.896"/>
-</kw>
-<status status="PASS" starttime="20251104 19:48:41.896" endtime="20251104 19:48:41.896"/>
-</iter>
-<status status="PASS" starttime="20251104 19:48:41.893" endtime="20251104 19:48:41.896"/>
-</for>
-<for flavor="IN">
-<var>${index}</var>
-<value>range(5)</value>
-<iter>
-<var name="${index}">range(5)</var>
-<kw name="Log" library="BuiltIn">
-<arg>${index}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251104 19:48:41.897" level="INFO">range(5)</msg>
-<status status="PASS" starttime="20251104 19:48:41.897" endtime="20251104 19:48:41.897"/>
-</kw>
-<status status="PASS" starttime="20251104 19:48:41.896" endtime="20251104 19:48:41.897"/>
-</iter>
-<status status="PASS" starttime="20251104 19:48:41.896" endtime="20251104 19:48:41.897"/>
-</for>
-<status status="PASS" starttime="20251104 19:48:41.886" endtime="20251104 19:48:41.898"/>
-</test>
-<test id="s1-t5" name="Reverse String" line="44">
-<kw name="Set Variable" library="BuiltIn">
-<var>${text}</var>
-<arg>hello</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20251104 19:48:41.899" level="INFO">${text} = hello</msg>
-<status status="PASS" starttime="20251104 19:48:41.899" endtime="20251104 19:48:41.899"/>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<var>${rev}</var>
-<arg>'${text}'[::-1]</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20251104 19:48:41.899" level="INFO">${rev} = olleh</msg>
-<status status="PASS" starttime="20251104 19:48:41.899" endtime="20251104 19:48:41.899"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>${rev}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251104 19:48:41.900" level="INFO">olleh</msg>
-<status status="PASS" starttime="20251104 19:48:41.900" endtime="20251104 19:48:41.900"/>
-</kw>
-<status status="PASS" starttime="20251104 19:48:41.898" endtime="20251104 19:48:41.900"/>
-</test>
-<test id="s1-t6" name="Find Max Without Max Function" line="52">
-<kw name="Create List" library="BuiltIn">
-<var>@{nums}</var>
-<arg>4</arg>
-<arg>9</arg>
-<arg>2</arg>
-<arg>7</arg>
-<doc>Returns a list containing given items.</doc>
-<msg timestamp="20251104 19:48:41.901" level="INFO">@{nums} = [ 4 | 9 | 2 | 7 ]</msg>
-<status status="PASS" starttime="20251104 19:48:41.901" endtime="20251104 19:48:41.901"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${max}</var>
-<arg>${nums[0]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20251104 19:48:41.902" level="INFO">${max} = 4</msg>
-<status status="PASS" starttime="20251104 19:48:41.901" endtime="20251104 19:48:41.903"/>
-</kw>
-<for flavor="IN">
-<var>${num}</var>
-<value>@{nums}</value>
-<iter>
-<var name="${num}">4</var>
-<if>
-<branch type="IF" condition="${num} &gt; ${max}">
-<kw name="Set Variable" library="BuiltIn">
-<var>${max}</var>
-<arg>${num}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.904"/>
-</kw>
-<status status="NOT RUN" starttime="20251104 19:48:41.903" endtime="20251104 19:48:41.904"/>
-</branch>
-<status status="PASS" starttime="20251104 19:48:41.903" endtime="20251104 19:48:41.904"/>
-</if>
-<status status="PASS" starttime="20251104 19:48:41.903" endtime="20251104 19:48:41.904"/>
-</iter>
-<iter>
-<var name="${num}">9</var>
-<if>
-<branch type="IF" condition="${num} &gt; ${max}">
-<kw name="Set Variable" library="BuiltIn">
-<var>${max}</var>
-<arg>${num}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20251104 19:48:41.904" level="INFO">${max} = 9</msg>
-<status status="PASS" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.904"/>
-</kw>
-<status status="PASS" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.904"/>
-</branch>
-<status status="PASS" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.904"/>
-</if>
-<status status="PASS" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.904"/>
-</iter>
-<iter>
-<var name="${num}">2</var>
-<if>
-<branch type="IF" condition="${num} &gt; ${max}">
-<kw name="Set Variable" library="BuiltIn">
-<var>${max}</var>
-<arg>${num}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" starttime="20251104 19:48:41.905" endtime="20251104 19:48:41.905"/>
-</kw>
-<status status="NOT RUN" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.905"/>
-</branch>
-<status status="PASS" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.905"/>
-</if>
-<status status="PASS" starttime="20251104 19:48:41.904" endtime="20251104 19:48:41.906"/>
-</iter>
-<iter>
-<var name="${num}">7</var>
-<if>
-<branch type="IF" condition="${num} &gt; ${max}">
-<kw name="Set Variable" library="BuiltIn">
-<var>${max}</var>
-<arg>${num}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" starttime="20251104 19:48:41.906" endtime="20251104 19:48:41.906"/>
-</kw>
-<status status="NOT RUN" starttime="20251104 19:48:41.906" endtime="20251104 19:48:41.907"/>
-</branch>
-<status status="PASS" starttime="20251104 19:48:41.906" endtime="20251104 19:48:41.907"/>
-</if>
-<status status="PASS" starttime="20251104 19:48:41.906" endtime="20251104 19:48:41.907"/>
-</iter>
-<status status="PASS" starttime="20251104 19:48:41.903" endtime="20251104 19:48:41.907"/>
-</for>
-<kw name="Log" library="BuiltIn">
-<arg>Maximum number is: ${max}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251104 19:48:41.907" level="INFO">Maximum number is: 9</msg>
-<status status="PASS" starttime="20251104 19:48:41.907" endtime="20251104 19:48:41.907"/>
-</kw>
-<status status="PASS" starttime="20251104 19:48:41.900" endtime="20251104 19:48:41.907"/>
-</test>
-<test id="s1-t7" name="Test User Login With Valid email" line="66">
-<kw name="Open login page">
-<msg timestamp="20251104 19:48:41.911" level="FAIL">No keyword with name 'Open login page' found.</msg>
-<status status="FAIL" starttime="20251104 19:48:41.911" endtime="20251104 19:48:41.912"/>
-</kw>
-<kw name="Enter Valid email">
-<status status="NOT RUN" starttime="20251104 19:48:41.915" endtime="20251104 19:48:41.915"/>
-</kw>
-<kw name="Click on continue">
-<status status="NOT RUN" starttime="20251104 19:48:41.920" endtime="20251104 19:48:41.920"/>
-</kw>
-<kw name="Validate user password screen">
-<status status="NOT RUN" starttime="20251104 19:48:41.921" endtime="20251104 19:48:41.921"/>
-</kw>
-<status status="FAIL" starttime="20251104 19:48:41.908" endtime="20251104 19:48:41.921">No keyword with name 'Open login page' found.</status>
-</test>
-<status status="FAIL" starttime="20251104 19:48:41.799" endtime="20251104 19:48:41.922"/>
+<status status="PASS" starttime="20251106 20:09:40.505" endtime="20251106 20:09:46.946"/>
+</suite>
+<status status="PASS" starttime="20251106 20:09:40.342" endtime="20251106 20:09:46.982"/>
 </suite>
 <statistics>
 <total>
-<stat pass="5" fail="2" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="5" fail="2" skip="0" id="s1" name="Basic Robot">Basic Robot</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Proj">Robot Proj</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test Get User">Robot Proj.Test Get User</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20251106 20:09:46.858" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
 </errors>
 </robot>

@@ -3,8 +3,11 @@
 
 
 *** Variables ***
+#scalar
 ${name}    John
+#List
 @{fruits}    Apple    Banana    Cherry
+#Dictionary
 &{person}    name=Alice    age=30
 
 
@@ -70,7 +73,7 @@ Test User Login With Valid email
     Enter Valid email
     Click on continue
 #   Then
-    Validate user password screen
+    Validate user redirection to password screen
 
 
 *** Keywords ***
@@ -80,4 +83,7 @@ Validation Example
     Should Not Be Equal    ${value}    5
 
 
-
+#C= create // Post
+#R= Read   // Get
+#U= Update  // Patch, Put
+#D= Delete // delete
