@@ -1,98 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.10.7 on darwin)" generated="20251106 20:09:40.333" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.2 (Python 3.10.7 on darwin)" generated="20251110 19:55:31.006" rpa="false" schemaversion="3">
 <suite id="s1" name="Robot Proj" source="/Users/apple/Documents/python_project/pythonProject/robot_proj">
-<suite id="s1-s1" name="Test Get User" source="/Users/apple/Documents/python_project/pythonProject/robot_proj/test_get_user.robot">
-<test id="s1-s1-t1" name="Fetch User Details" line="11">
-<kw name="Create Session" library="RequestsLibrary">
-<arg>reqres</arg>
-<arg>${BASE_URL}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20251106 20:09:46.256" level="INFO">Creating Session using : alias=reqres, url=https://reqres.in/api/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20251106 20:09:46.236" endtime="20251106 20:09:46.257"/>
+<suite id="s1-s1" name="class 1 APi" source="/Users/apple/Documents/python_project/pythonProject/robot_proj/class_1_APi.robot">
+<test id="s1-s1-t1" name="Crerate A User" line="19">
+<kw name="Set Variable" library="BuiltIn">
+<var>${user_url}</var>
+<arg>https://reqres.in/api/</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20251110 19:55:31.386" level="INFO">${user_url} = https://reqres.in/api/</msg>
+<status status="PASS" starttime="20251110 19:55:31.386" endtime="20251110 19:55:31.386"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
-<var>${headers}</var>
-<arg>x-api-key=${API_KEY}</arg>
+<var>${my_header}</var>
+<arg>x-api-key=reqres-free-v1</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20251106 20:09:46.307" level="INFO">${headers} = {'x-api-key': 'reqres-free-v1'}</msg>
-<status status="PASS" starttime="20251106 20:09:46.266" endtime="20251106 20:09:46.307"/>
+<msg timestamp="20251110 19:55:31.387" level="INFO">${my_header} = {'x-api-key': 'reqres-free-v1'}</msg>
+<status status="PASS" starttime="20251110 19:55:31.387" endtime="20251110 19:55:31.387"/>
 </kw>
-<kw name="GET On Session" library="RequestsLibrary">
-<var>${response}</var>
-<arg>reqres</arg>
-<arg>/users/1</arg>
-<arg>headers=${headers}</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20251106 20:09:46.778" level="INFO">GET Request : url=https://reqres.in/api/users/1 
- path_url=/api/users/1 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-api-key': 'reqres-free-v1'} 
- body=None 
+<kw name="Set Variable" library="BuiltIn">
+<var>${user_name}</var>
+<arg>TARA Prasad</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20251110 19:55:31.387" level="INFO">${user_name} = TARA Prasad</msg>
+<status status="PASS" starttime="20251110 19:55:31.387" endtime="20251110 19:55:31.387"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${post_body}</var>
+<arg>name=${user_name}</arg>
+<arg>job=Developer</arg>
+<arg>email=test@test.com</arg>
+<arg>is_inbangalore=False</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20251110 19:55:31.388" level="INFO">${post_body} = {'name': 'TARA Prasad', 'job': 'Developer', 'email': 'test@test.com', 'is_inbangalore': 'False'}</msg>
+<status status="PASS" starttime="20251110 19:55:31.387" endtime="20251110 19:55:31.388"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>req_res_ses</arg>
+<arg>${user_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20251110 19:55:31.389" level="INFO">Creating Session using : alias=req_res_ses, url=https://reqres.in/api/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20251110 19:55:31.389" endtime="20251110 19:55:31.389"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${responce}</var>
+<arg>req_res_ses</arg>
+<arg>users/</arg>
+<arg>json=${post_body}</arg>
+<arg>headers=${my_header}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20251110 19:55:31.705" level="INFO">POST Request : url=https://reqres.in/api/users/ 
+ path_url=/api/users/ 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-api-key': 'reqres-free-v1', 'Content-Length': '96', 'Content-Type': 'application/json'} 
+ body=b'{"name": "TARA Prasad", "job": "Developer", "email": "test@test.com", "is_inbangalore": "False"}' 
  </msg>
-<msg timestamp="20251106 20:09:46.789" level="INFO">GET Response : url=https://reqres.in/api/users/1 
- status=200, reason=OK 
- headers={'Date': 'Thu, 06 Nov 2025 14:39:46 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-api-key', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Origin': 'http://localhost:5173', 'Etag': 'W/"334-JOZgDGSMKFdcho3+278oIhfV1XI"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '18', 'Ratelimit-Reset': '104', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=K3Nc9StSB8%2BnxYfzfcrjlm0CqTG%2BW7rTwU1Oog10%2BkA%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1762437269"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=K3Nc9StSB8%2BnxYfzfcrjlm0CqTG%2BW7rTwU1Oog10%2BkA%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1762437269"', 'Server': 'cloudflare', 'Vary': 'Origin, accept-encoding', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-Powered-By': 'ReqRes.in - Deploy backends in 30 seconds', 'X-Reqres-Docs': 'https://reqres.in', 'X-Reqres-Message': 'This API is powered by ReqRes. Deploy your own backend in 30 seconds!', 'X-Reqres-Templates': 'https://app.reqres.in/templates', 'X-Reqres-Upgrade': 'https://app.reqres.in/upgrade', 'X-Request-Id': 'd633117f-d1f3-8656-3331-af03b304c423', 'X-Xss-Protection': '1; mode=block', 'Age': '2717', 'Cache-Control': 'max-age=14400', 'cf-cache-status': 'HIT', 'Content-Encoding': 'gzip', 'CF-RAY': '99a5579d3b697f5d-MAA'} 
- body={"data":{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."},"_meta":{"powered_by":"🚀 ReqRes - Deploy backends in 30 seconds","upgrade_url":"https://app.reqres.in/upgrade","docs_url":"https://reqres.in","template_gallery":"https://app.reqres.in/templates","message":"This API is powered by ReqRes. Deploy your own backend in 30 seconds!","features":["30 Second Backend Templates","Custom API Endpoints","Data Persistence","Real-time Analytics"],"upgrade_cta":"Upgrade to Pro for unlimited requests, custom endpoints, and data persistence"}} 
+<msg timestamp="20251110 19:55:31.706" level="INFO">POST Response : url=https://reqres.in/api/users/ 
+ status=201, reason=Created 
+ headers={'Date': 'Mon, 10 Nov 2025 14:25:31 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '139', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-api-key', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Origin': 'http://localhost:5173', 'Etag': 'W/"8b-IRgcfrUgaPTii4D9VOVPb/oHaYo"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '98', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=MetNxKZtBHpqpBcAu4b1VYmjoGdjzqU9cr0veZdJHSw%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1762784731"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=MetNxKZtBHpqpBcAu4b1VYmjoGdjzqU9cr0veZdJHSw%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1762784731"', 'Server': 'cloudflare', 'Vary': 'Origin', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-Powered-By': 'ReqRes.in - Deploy backends in 30 seconds', 'X-Reqres-Docs': 'https://reqres.in', 'X-Reqres-Message': 'This API is powered by ReqRes. Deploy your own backend in 30 seconds!', 'X-Reqres-Templates': 'https://app.reqres.in/templates', 'X-Reqres-Upgrade': 'https://app.reqres.in/upgrade', 'X-Request-Id': '4a96391f-2da7-fad4-d085-da555b45add9', 'X-Xss-Protection': '1; mode=block', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': '99c6383bede4425a-BOM'} 
+ body={"name":"TARA Prasad","job":"Developer","email":"test@test.com","is_inbangalore":"False","id":"533","createdAt":"2025-11-10T14:25:31.607Z"} 
  </msg>
-<msg timestamp="20251106 20:09:46.792" level="INFO">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+<msg timestamp="20251110 19:55:31.706" level="INFO">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg timestamp="20251106 20:09:46.793" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20251106 20:09:46.385" endtime="20251106 20:09:46.794"/>
+<msg timestamp="20251110 19:55:31.707" level="INFO">${responce} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20251110 19:55:31.390" endtime="20251110 19:55:31.707"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>Status: ${response.status_code}</arg>
+<arg>${responce.text}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251106 20:09:46.803" level="INFO">Status: 200</msg>
-<status status="PASS" starttime="20251106 20:09:46.796" endtime="20251106 20:09:46.803"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>Body: ${response.text}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251106 20:09:46.833" level="INFO">Body: {"data":{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."},"_meta":{"powered_by":"🚀 ReqRes - Deploy backends in 30 seconds","upgrade_url":"https://app.reqres.in/upgrade","docs_url":"https://reqres.in","template_gallery":"https://app.reqres.in/templates","message":"This API is powered by ReqRes. Deploy your own backend in 30 seconds!","features":["30 Second Backend Templates","Custom API Endpoints","Data Persistence","Real-time Analytics"],"upgrade_cta":"Upgrade to Pro for unlimited requests, custom endpoints, and data persistence"}}</msg>
-<status status="PASS" starttime="20251106 20:09:46.826" endtime="20251106 20:09:46.833"/>
+<msg timestamp="20251110 19:55:31.709" level="INFO">{"name":"TARA Prasad","job":"Developer","email":"test@test.com","is_inbangalore":"False","id":"533","createdAt":"2025-11-10T14:25:31.607Z"}</msg>
+<status status="PASS" starttime="20251110 19:55:31.708" endtime="20251110 19:55:31.709"/>
 </kw>
 <kw name="Should Be Equal As Integers" library="BuiltIn">
-<arg>${response.status_code}</arg>
-<arg>200</arg>
+<arg>${responce.status_code}</arg>
+<arg>201</arg>
 <doc>Fails if objects are unequal after converting them to integers.</doc>
-<msg timestamp="20251106 20:09:46.837" level="INFO">Argument types are:
+<msg timestamp="20251110 19:55:31.712" level="INFO">Argument types are:
 &lt;class 'int'&gt;
 &lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20251106 20:09:46.834" endtime="20251106 20:09:46.838"/>
+<status status="PASS" starttime="20251110 19:55:31.711" endtime="20251110 19:55:31.713"/>
 </kw>
 <kw name="To Json" library="RequestsLibrary">
-<var>${json}</var>
-<arg>${response.text}</arg>
+<var>${json_resp}</var>
+<arg>${responce.text}</arg>
 <doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
-<msg timestamp="20251106 20:09:46.858" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
-<msg timestamp="20251106 20:09:46.868" level="INFO">To JSON using : content={"data":{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."},"_meta":{"powered_by":"🚀 ReqRes - Deploy backends in 30 seconds","upgrade_url":"https://app.reqres.in/upgrade","docs_url":"https://reqres.in","template_gallery":"https://app.reqres.in/templates","message":"This API is powered by ReqRes. Deploy your own backend in 30 seconds!","features":["30 Second Backend Templates","Custom API Endpoints","Data Persistence","Real-time Analytics"],"upgrade_cta":"Upgrade to Pro for unlimited requests, custom endpoints, and data persistence"}} </msg>
-<msg timestamp="20251106 20:09:46.877" level="INFO">To JSON using : pretty_print=False </msg>
-<msg timestamp="20251106 20:09:46.878" level="INFO">${json} = {'data': {'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-image.jpg'}, 'support': {'url': 'https://contentcaddy.io?ut...</msg>
-<status status="PASS" starttime="20251106 20:09:46.858" endtime="20251106 20:09:46.878"/>
+<msg timestamp="20251110 19:55:31.713" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20251110 19:55:31.715" level="INFO">To JSON using : content={"name":"TARA Prasad","job":"Developer","email":"test@test.com","is_inbangalore":"False","id":"533","createdAt":"2025-11-10T14:25:31.607Z"} </msg>
+<msg timestamp="20251110 19:55:31.715" level="INFO">To JSON using : pretty_print=False </msg>
+<msg timestamp="20251110 19:55:31.715" level="INFO">${json_resp} = {'name': 'TARA Prasad', 'job': 'Developer', 'email': 'test@test.com', 'is_inbangalore': 'False', 'id': '533', 'createdAt': '2025-11-10T14:25:31.607Z'}</msg>
+<status status="PASS" starttime="20251110 19:55:31.713" endtime="20251110 19:55:31.715"/>
 </kw>
-<kw name="Log" library="BuiltIn">
-<arg>${json["data"]}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251106 20:09:46.897" level="INFO">{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-image.jpg'}</msg>
-<status status="PASS" starttime="20251106 20:09:46.879" endtime="20251106 20:09:46.915"/>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${json_resp["name"]}</arg>
+<arg>${user_name}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20251110 19:55:31.715" endtime="20251110 19:55:31.717"/>
 </kw>
-<status status="PASS" starttime="20251106 20:09:46.228" endtime="20251106 20:09:46.916"/>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${json_resp["job"]}</arg>
+<arg>Developer</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20251110 19:55:31.717" endtime="20251110 19:55:31.718"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${json_resp["is_inbangalore"]}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<msg timestamp="20251110 19:55:31.719" level="FAIL">'False' should be true.</msg>
+<status status="FAIL" starttime="20251110 19:55:31.719" endtime="20251110 19:55:31.720"/>
+</kw>
+<status status="FAIL" starttime="20251110 19:55:31.385" endtime="20251110 19:55:31.720">'False' should be true.</status>
 </test>
-<status status="PASS" starttime="20251106 20:09:40.505" endtime="20251106 20:09:46.946"/>
+<status status="FAIL" starttime="20251110 19:55:31.033" endtime="20251110 19:55:31.721"/>
 </suite>
-<status status="PASS" starttime="20251106 20:09:40.342" endtime="20251106 20:09:46.982"/>
+<status status="FAIL" starttime="20251110 19:55:31.008" endtime="20251110 19:55:31.722"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Robot Proj">Robot Proj</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test Get User">Robot Proj.Test Get User</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Robot Proj">Robot Proj</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="class 1 APi">Robot Proj.class 1 APi</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20251106 20:09:46.858" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
+<msg timestamp="20251110 19:55:31.713" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
 </errors>
 </robot>
