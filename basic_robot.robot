@@ -76,11 +76,48 @@ Test User Login With Valid email
     Validate user redirection to password screen
 
 
+Practice Keywords
+	${rev_out}  Reverse Str with Return
+	Log    ${rev_out}
+    Reverse Str with Arg   Biswajit
+    Reverse Str with Multiple Arg   India   Bengalure
+    ${rev_2}     Reverse Str with Multiple Arg and Return    Bengalure    India
+    Log    ${rev_2}
+
 *** Keywords ***
+#keyword without argument and without return type
 Validation Example
     ${value}=    Set Variable    10
     Should Be Equal As Numbers    ${value}    10
     Should Not Be Equal    ${value}    5
+
+
+Reverse Str with Return
+    ${text}=    Set Variable    hello
+    ${rev}=    Evaluate    '${text}'[::-1]
+    Log    ${rev}
+    [Return]    ${rev}
+
+Reverse Str with Arg
+	[Arguments]    ${text}
+#    ${text}=    Set Variable    hello
+    ${rev}=    Evaluate    '${text}'[::-1]
+    Log    ${rev}
+
+Reverse Str with Multiple Arg
+	[Arguments]    ${text}     ${arg2}
+#    ${text}=    Set Variable    hello
+    ${rev}=    Evaluate    '${text}'[::-1]
+    Log    ${rev}
+    Log    ${arg2}
+
+Reverse Str with Multiple Arg and Return
+	[Arguments]    ${text}     ${arg2}
+#    ${text}=    Set Variable    hello
+    ${rev}=    Evaluate    '${text}'[::-1]
+    Log    ${rev}
+    Log    ${arg2}
+    [Return]    ${rev}
 
 
 #C= create // Post
