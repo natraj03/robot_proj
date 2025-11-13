@@ -1,0 +1,5 @@
+Keywords - > storing keyworkds reused in testcases
+library - > storing all the .py files
+tests -> testcases
+utils -> commonly used function
+configs - > environment specific configs
