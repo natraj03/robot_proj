@@ -1,59 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.12 on darwin)" generated="20251115 11:54:06.115" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.12 on darwin)" generated="20251115 12:06:39.521" rpa="false" schemaversion="4">
 <suite id="s1" name="Reverse Of Tring" source="/Users/apple/Documents/python_project/pythonProject/robot_proj/tests/practice/reverse_of_tring.robot">
-<test id="s1-t1" name="Reverse Basic String" line="5">
-<kw name="Set Variable" library="BuiltIn">
-<var>${input_str}</var>
-<arg>hello</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20251115 11:54:06.207" level="INFO">${input_str} = hello</msg>
-<status status="PASS" starttime="20251115 11:54:06.206" endtime="20251115 11:54:06.207"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${expected_rev_str}</var>
-<arg>olleh</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20251115 11:54:06.207" level="INFO">${expected_rev_str} = olleh</msg>
-<status status="PASS" starttime="20251115 11:54:06.207" endtime="20251115 11:54:06.207"/>
-</kw>
-<kw name="Reverse Given String" library="rerverseofstr">
-<var>${rev_str}</var>
-<arg>${input_str}</arg>
-<kw name="Evaluate" library="BuiltIn">
-<var>${rev}</var>
-<arg>'${text}'[::-1]</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20251115 11:54:06.209" level="INFO">${rev} = olleh</msg>
-<status status="PASS" starttime="20251115 11:54:06.208" endtime="20251115 11:54:06.209"/>
-</kw>
-<msg timestamp="20251115 11:54:06.209" level="INFO">${rev_str} = olleh</msg>
-<status status="PASS" starttime="20251115 11:54:06.208" endtime="20251115 11:54:06.209"/>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<arg>${expected_rev_str}</arg>
-<arg>${rev_str}</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20251115 11:54:06.209" endtime="20251115 11:54:06.209"/>
-</kw>
-<tag>001</tag>
-<tag>regression</tag>
-<tag>SMO_009</tag>
-<status status="PASS" starttime="20251115 11:54:06.206" endtime="20251115 11:54:06.210"/>
-</test>
-<test id="s1-t2" name="Reverse Case Basic String" line="13">
+<test id="s1-t1" name="Reverse Case Basic String" line="13">
 <kw name="Set Variable" library="BuiltIn">
 <var>${input_str}</var>
 <arg>Hello</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20251115 11:54:06.211" level="INFO">${input_str} = Hello</msg>
-<status status="PASS" starttime="20251115 11:54:06.210" endtime="20251115 11:54:06.211"/>
+<msg timestamp="20251115 12:06:39.569" level="INFO">${input_str} = Hello</msg>
+<status status="PASS" starttime="20251115 12:06:39.568" endtime="20251115 12:06:39.569"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${expected_rev_str}</var>
 <arg>olleH</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20251115 11:54:06.212" level="INFO">${expected_rev_str} = olleH</msg>
-<status status="PASS" starttime="20251115 11:54:06.211" endtime="20251115 11:54:06.212"/>
+<msg timestamp="20251115 12:06:39.569" level="INFO">${expected_rev_str} = olleH</msg>
+<status status="PASS" starttime="20251115 12:06:39.569" endtime="20251115 12:06:39.569"/>
 </kw>
 <kw name="Reverse Given String" library="rerverseofstr">
 <var>${rev_str}</var>
@@ -62,37 +23,37 @@
 <var>${rev}</var>
 <arg>'${text}'[::-1]</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20251115 11:54:06.213" level="INFO">${rev} = olleH</msg>
-<status status="PASS" starttime="20251115 11:54:06.213" endtime="20251115 11:54:06.213"/>
+<msg timestamp="20251115 12:06:39.570" level="INFO">${rev} = olleH</msg>
+<status status="PASS" starttime="20251115 12:06:39.570" endtime="20251115 12:06:39.570"/>
 </kw>
-<msg timestamp="20251115 11:54:06.214" level="INFO">${rev_str} = olleH</msg>
-<status status="PASS" starttime="20251115 11:54:06.212" endtime="20251115 11:54:06.214"/>
+<msg timestamp="20251115 12:06:39.570" level="INFO">${rev_str} = olleH</msg>
+<status status="PASS" starttime="20251115 12:06:39.569" endtime="20251115 12:06:39.570"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${expected_rev_str}</arg>
 <arg>${rev_str}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20251115 11:54:06.214" endtime="20251115 11:54:06.214"/>
+<status status="PASS" starttime="20251115 12:06:39.570" endtime="20251115 12:06:39.571"/>
 </kw>
 <tag>002</tag>
 <tag>sanity</tag>
 <tag>SMO_003</tag>
-<status status="PASS" starttime="20251115 11:54:06.210" endtime="20251115 11:54:06.214"/>
+<status status="PASS" starttime="20251115 12:06:39.567" endtime="20251115 12:06:39.571"/>
 </test>
-<test id="s1-t3" name="Reverse Case Basic with number String" line="22">
+<test id="s1-t2" name="Reverse Case Basic with number String" line="22">
 <kw name="Set Variable" library="BuiltIn">
 <var>${input_str}</var>
 <arg>Hello123</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20251115 11:54:06.216" level="INFO">${input_str} = Hello123</msg>
-<status status="PASS" starttime="20251115 11:54:06.216" endtime="20251115 11:54:06.216"/>
+<msg timestamp="20251115 12:06:39.571" level="INFO">${input_str} = Hello123</msg>
+<status status="PASS" starttime="20251115 12:06:39.571" endtime="20251115 12:06:39.571"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${expected_rev_str}</var>
 <arg>321olleH</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20251115 11:54:06.217" level="INFO">${expected_rev_str} = 321olleH</msg>
-<status status="PASS" starttime="20251115 11:54:06.217" endtime="20251115 11:54:06.217"/>
+<msg timestamp="20251115 12:06:39.572" level="INFO">${expected_rev_str} = 321olleH</msg>
+<status status="PASS" starttime="20251115 12:06:39.572" endtime="20251115 12:06:39.572"/>
 </kw>
 <kw name="Reverse Given String" library="rerverseofstr">
 <var>${rev_str}</var>
@@ -101,44 +62,42 @@
 <var>${rev}</var>
 <arg>'${text}'[::-1]</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20251115 11:54:06.218" level="INFO">${rev} = 321olleH</msg>
-<status status="PASS" starttime="20251115 11:54:06.218" endtime="20251115 11:54:06.218"/>
+<msg timestamp="20251115 12:06:39.572" level="INFO">${rev} = 321olleH</msg>
+<status status="PASS" starttime="20251115 12:06:39.572" endtime="20251115 12:06:39.572"/>
 </kw>
-<msg timestamp="20251115 11:54:06.218" level="INFO">${rev_str} = 321olleH</msg>
-<status status="PASS" starttime="20251115 11:54:06.217" endtime="20251115 11:54:06.218"/>
+<msg timestamp="20251115 12:06:39.573" level="INFO">${rev_str} = 321olleH</msg>
+<status status="PASS" starttime="20251115 12:06:39.572" endtime="20251115 12:06:39.573"/>
 </kw>
 <kw name="Should Be Equal As Strings" library="BuiltIn">
 <arg>${expected_rev_str}</arg>
 <arg>${rev_str}</arg>
 <doc>Fails if objects are unequal after converting them to strings.</doc>
-<status status="PASS" starttime="20251115 11:54:06.219" endtime="20251115 11:54:06.219"/>
+<status status="PASS" starttime="20251115 12:06:39.573" endtime="20251115 12:06:39.573"/>
 </kw>
 <tag>003</tag>
 <tag>regression</tag>
 <tag>sanity</tag>
 <tag>SMO_007</tag>
 <tag>smoke</tag>
-<status status="PASS" starttime="20251115 11:54:06.215" endtime="20251115 11:54:06.220"/>
+<status status="PASS" starttime="20251115 12:06:39.571" endtime="20251115 12:06:39.573"/>
 </test>
-<status status="PASS" starttime="20251115 11:54:06.118" endtime="20251115 11:54:06.220"/>
+<status status="PASS" starttime="20251115 12:06:39.527" endtime="20251115 12:06:39.573"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">001</stat>
 <stat pass="1" fail="0" skip="0">002</stat>
 <stat pass="1" fail="0" skip="0">003</stat>
-<stat pass="2" fail="0" skip="0">regression</stat>
+<stat pass="1" fail="0" skip="0">regression</stat>
 <stat pass="2" fail="0" skip="0">sanity</stat>
 <stat pass="1" fail="0" skip="0">SMO_003</stat>
 <stat pass="1" fail="0" skip="0">SMO_007</stat>
-<stat pass="1" fail="0" skip="0">SMO_009</stat>
 <stat pass="1" fail="0" skip="0">smoke</stat>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="Reverse Of Tring">Reverse Of Tring</stat>
+<stat pass="2" fail="0" skip="0" id="s1" name="Reverse Of Tring">Reverse Of Tring</stat>
 </suite>
 </statistics>
 <errors>

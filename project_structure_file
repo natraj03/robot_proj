@@ -54,3 +54,14 @@ robot  --include regression --include sanity tests/practice/reverse_of_tring.rob
 Run test cases based on logic OR AND
 
 robot  --include "regression OR smoke OR sanity" tests/practice/reverse_of_tring.robot
+
+
+robot  --test "*Case*"  tests/practice/reverse_of_tring.robot
+
+robot  --test "Reverse*"  tests/practice/reverse_of_tring.robot
+
+robot  --test "*String"  tests/practice/reverse_of_tring.robot
+
+
+
+
