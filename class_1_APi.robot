@@ -4,7 +4,7 @@ Library    RequestsLibrary
 *** Test Cases ***
 #Get
 Get Users
-    ${user_url}    Set Variable    https://reqres.in/api/users/
+    ${user_url}    Set Variable    https://qa.reqres.in/api/users/
     ${my_header}    Create Dictionary      x-api-key=reqres-free-v1
     ${user_id}      Set Variable    12
     Create Session   req_ses  ${user_url}

@@ -3,3 +3,54 @@ library - > storing all the .py files
 tests -> testcases
 utils -> commonly used function
 configs - > environment specific configs
+
+
+
+dev environment : developers use it : main, ismail , Raja
+
+QA - environment : Testers use it
+
+version 1.0
+01 = new bug 10
+02 = fix 2, pending 8, new 5 : 13
+03 = 6 bugs
+04 = 1
+05 = all fixed 0 bugs ready for release
+
+
+UAT - user acceptance testing : Client use it
+versio 1.0
+build: 05
+bugs : 2
+
+Production : Live : generral users use it
+version
+07
+
+
+--------  Run testcases using robot command CLI ------
+syntax: run all the testcases in a file
+
+robot path/to/robotfile.robot
+
+ex: robot tests/practice/reverse_of_tring.robot
+
+
+EX2: run specific testcases in a file
+robot  --test "Reverse Case Basic with number String"  tests/practice/reverse_of_tring.robot
+
+EX3: run specific but multiple testcase in a file
+robot  --test "Reverse Case Basic with number String"  --test "Reverse Basic String"  tests/practice/reverse_of_tring.robot
+
+
+
+run test case with tag
+robot  --include regression  tests/practice/reverse_of_tring.robot
+
+
+run multiple tags for testcase
+robot  --include regression --include sanity tests/practice/reverse_of_tring.robot
+
+Run test cases based on logic OR AND
+
+robot  --include "regression OR smoke OR sanity" tests/practice/reverse_of_tring.robot

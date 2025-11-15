@@ -1,5 +1,10 @@
-*** Test Cases ***
+*** Settings ***
+Resource    ../../configs/api_variables.robot
+Library    RequestsLibrary
 
+
+
+*** Test Cases ***
 Get User
     ${user_id}    Set Variable    3
     Create Session     req_res    ${base_url}

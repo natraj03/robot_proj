@@ -1,122 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.10.7 on darwin)" generated="20251113 19:49:35.601" rpa="false" schemaversion="3">
-<suite id="s1" name="Robot Proj" source="/Users/apple/Documents/python_project/pythonProject/robot_proj">
-<suite id="s1-s1" name="Tests" source="/Users/apple/Documents/python_project/pythonProject/robot_proj/tests">
-<suite id="s1-s1-s1" name="Users" source="/Users/apple/Documents/python_project/pythonProject/robot_proj/tests/users">
-<suite id="s1-s1-s1-s1" name="Users" source="/Users/apple/Documents/python_project/pythonProject/robot_proj/tests/users/users.robot">
-<test id="s1-s1-s1-s1-t1" name="Get User" line="7">
+<robot generator="Robot 6.1.1 (Python 3.11.12 on darwin)" generated="20251115 11:54:06.115" rpa="false" schemaversion="4">
+<suite id="s1" name="Reverse Of Tring" source="/Users/apple/Documents/python_project/pythonProject/robot_proj/tests/practice/reverse_of_tring.robot">
+<test id="s1-t1" name="Reverse Basic String" line="5">
 <kw name="Set Variable" library="BuiltIn">
-<var>${user_id}</var>
-<arg>3</arg>
+<var>${input_str}</var>
+<arg>hello</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20251113 19:49:36.001" level="INFO">${user_id} = 3</msg>
-<status status="PASS" starttime="20251113 19:49:36.000" endtime="20251113 19:49:36.001"/>
-</kw>
-<kw name="Create Session" library="RequestsLibrary">
-<arg>req_res</arg>
-<arg>${base_url}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20251113 19:49:36.001" level="INFO">Creating Session using : alias=req_res, url=https://reqres.in/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20251113 19:49:36.001" endtime="20251113 19:49:36.002"/>
-</kw>
-<kw name="GET On Session" library="RequestsLibrary">
-<var>${responce}</var>
-<arg>req_res</arg>
-<arg>${users}/${user_id}</arg>
-<arg>headers=${base_header}</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20251113 19:49:36.535" level="INFO">GET Request : url=https://reqres.in/api/users/3 
- path_url=/api/users/3 
- headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-api-key': 'reqres-free-v1'} 
- body=None 
- </msg>
-<msg timestamp="20251113 19:49:36.535" level="INFO">GET Response : url=https://reqres.in/api/users/3 
- status=200, reason=OK 
- headers={'Date': 'Thu, 13 Nov 2025 14:19:36 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-api-key', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Origin': 'http://localhost:5173', 'etag': 'W/"32e-4Le9mHIYKGUApWIffgXJ2JxQ5uU"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '98', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=qjdorc1E6rSM4Hk9bUs%2FvXSmF6wYHq9YiJRkfqUPVjg%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1763016972"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=qjdorc1E6rSM4Hk9bUs%2FvXSmF6wYHq9YiJRkfqUPVjg%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1763016972"', 'Server': 'cloudflare', 'Vary': 'Origin, accept-encoding', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-Powered-By': 'ReqRes.in - Deploy backends in 30 seconds', 'X-Reqres-Docs': 'https://reqres.in', 'X-Reqres-Message': 'This API is powered by ReqRes. Deploy your own backend in 30 seconds!', 'X-Reqres-Templates': 'https://app.reqres.in/templates', 'X-Reqres-Upgrade': 'https://app.reqres.in/upgrade', 'X-Request-Id': '1484b6fe-f4b0-3e69-95d1-fa025fabe162', 'X-Xss-Protection': '1; mode=block', 'Cache-Control': 'max-age=14400', 'cf-cache-status': 'REVALIDATED', 'Content-Encoding': 'gzip', 'CF-RAY': '99dee7af7966c203-BOM'} 
- body={"data":{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"},"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."},"_meta":{"powered_by":"🚀 ReqRes - Deploy backends in 30 seconds","upgrade_url":"https://app.reqres.in/upgrade","docs_url":"https://reqres.in","template_gallery":"https://app.reqres.in/templates","message":"This API is powered by ReqRes. Deploy your own backend in 30 seconds!","features":["30 Second Backend Templates","Custom API Endpoints","Data Persistence","Real-time Analytics"],"upgrade_cta":"Upgrade to Pro for unlimited requests, custom endpoints, and data persistence"}} 
- </msg>
-<msg timestamp="20251113 19:49:36.535" level="INFO">/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/urllib3/connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
-  warnings.warn(</msg>
-<msg timestamp="20251113 19:49:36.535" level="INFO">${responce} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20251113 19:49:36.002" endtime="20251113 19:49:36.535"/>
-</kw>
-<kw name="Should Be Equal As Integers" library="BuiltIn">
-<arg>${responce.status_code}</arg>
-<arg>200</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<msg timestamp="20251113 19:49:36.537" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20251113 19:49:36.536" endtime="20251113 19:49:36.537"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>${responce.text}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251113 19:49:36.538" level="INFO">{"data":{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"},"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."},"_meta":{"powered_by":"🚀 ReqRes - Deploy backends in 30 seconds","upgrade_url":"https://app.reqres.in/upgrade","docs_url":"https://reqres.in","template_gallery":"https://app.reqres.in/templates","message":"This API is powered by ReqRes. Deploy your own backend in 30 seconds!","features":["30 Second Backend Templates","Custom API Endpoints","Data Persistence","Real-time Analytics"],"upgrade_cta":"Upgrade to Pro for unlimited requests, custom endpoints, and data persistence"}}</msg>
-<status status="PASS" starttime="20251113 19:49:36.537" endtime="20251113 19:49:36.538"/>
-</kw>
-<kw name="To Json" library="RequestsLibrary">
-<var>${json_resp}</var>
-<arg>${responce.text}</arg>
-<doc>*DEPRECATED* Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</doc>
-<msg timestamp="20251113 19:49:36.539" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
-<msg timestamp="20251113 19:49:36.540" level="INFO">To JSON using : content={"data":{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"},"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."},"_meta":{"powered_by":"🚀 ReqRes - Deploy backends in 30 seconds","upgrade_url":"https://app.reqres.in/upgrade","docs_url":"https://reqres.in","template_gallery":"https://app.reqres.in/templates","message":"This API is powered by ReqRes. Deploy your own backend in 30 seconds!","features":["30 Second Backend Templates","Custom API Endpoints","Data Persistence","Real-time Analytics"],"upgrade_cta":"Upgrade to Pro for unlimited requests, custom endpoints, and data persistence"}} </msg>
-<msg timestamp="20251113 19:49:36.540" level="INFO">To JSON using : pretty_print=False </msg>
-<msg timestamp="20251113 19:49:36.540" level="INFO">${json_resp} = {'data': {'id': 3, 'email': 'emma.wong@reqres.in', 'first_name': 'Emma', 'last_name': 'Wong', 'avatar': 'https://reqres.in/img/faces/3-image.jpg'}, 'support': {'url': 'https://contentcaddy.io?utm_sour...</msg>
-<status status="PASS" starttime="20251113 19:49:36.539" endtime="20251113 19:49:36.540"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>${json_resp}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251113 19:49:36.540" level="INFO">{'data': {'id': 3, 'email': 'emma.wong@reqres.in', 'first_name': 'Emma', 'last_name': 'Wong', 'avatar': 'https://reqres.in/img/faces/3-image.jpg'}, 'support': {'url': 'https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral', 'text': 'Tired of writing endless social media content? Let Content Caddy generate it for you.'}, '_meta': {'powered_by': '🚀 ReqRes - Deploy backends in 30 seconds', 'upgrade_url': 'https://app.reqres.in/upgrade', 'docs_url': 'https://reqres.in', 'template_gallery': 'https://app.reqres.in/templates', 'message': 'This API is powered by ReqRes. Deploy your own backend in 30 seconds!', 'features': ['30 Second Backend Templates', 'Custom API Endpoints', 'Data Persistence', 'Real-time Analytics'], 'upgrade_cta': 'Upgrade to Pro for unlimited requests, custom endpoints, and data persistence'}}</msg>
-<status status="PASS" starttime="20251113 19:49:36.540" endtime="20251113 19:49:36.541"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>${json_resp["data"]}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20251113 19:49:36.541" level="INFO">{'id': 3, 'email': 'emma.wong@reqres.in', 'first_name': 'Emma', 'last_name': 'Wong', 'avatar': 'https://reqres.in/img/faces/3-image.jpg'}</msg>
-<status status="PASS" starttime="20251113 19:49:36.541" endtime="20251113 19:49:36.541"/>
+<msg timestamp="20251115 11:54:06.207" level="INFO">${input_str} = hello</msg>
+<status status="PASS" starttime="20251115 11:54:06.206" endtime="20251115 11:54:06.207"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
-<var>${data}</var>
-<arg>${json_resp["data"]}</arg>
+<var>${expected_rev_str}</var>
+<arg>olleh</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20251113 19:49:36.542" level="INFO">${data} = {'id': 3, 'email': 'emma.wong@reqres.in', 'first_name': 'Emma', 'last_name': 'Wong', 'avatar': 'https://reqres.in/img/faces/3-image.jpg'}</msg>
-<status status="PASS" starttime="20251113 19:49:36.542" endtime="20251113 19:49:36.542"/>
+<msg timestamp="20251115 11:54:06.207" level="INFO">${expected_rev_str} = olleh</msg>
+<status status="PASS" starttime="20251115 11:54:06.207" endtime="20251115 11:54:06.207"/>
 </kw>
-<kw name="Should Be Equal As Integers" library="BuiltIn">
-<arg>${data["id"]}</arg>
-<arg>${user_id}</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<msg timestamp="20251113 19:49:36.544" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20251113 19:49:36.543" endtime="20251113 19:49:36.544"/>
+<kw name="Reverse Given String" library="rerverseofstr">
+<var>${rev_str}</var>
+<arg>${input_str}</arg>
+<kw name="Evaluate" library="BuiltIn">
+<var>${rev}</var>
+<arg>'${text}'[::-1]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20251115 11:54:06.209" level="INFO">${rev} = olleh</msg>
+<status status="PASS" starttime="20251115 11:54:06.208" endtime="20251115 11:54:06.209"/>
 </kw>
-<status status="PASS" starttime="20251113 19:49:36.000" endtime="20251113 19:49:36.544"/>
+<msg timestamp="20251115 11:54:06.209" level="INFO">${rev_str} = olleh</msg>
+<status status="PASS" starttime="20251115 11:54:06.208" endtime="20251115 11:54:06.209"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${expected_rev_str}</arg>
+<arg>${rev_str}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20251115 11:54:06.209" endtime="20251115 11:54:06.209"/>
+</kw>
+<tag>001</tag>
+<tag>regression</tag>
+<tag>SMO_009</tag>
+<status status="PASS" starttime="20251115 11:54:06.206" endtime="20251115 11:54:06.210"/>
 </test>
-<status status="PASS" starttime="20251113 19:49:35.648" endtime="20251113 19:49:36.545"/>
-</suite>
-<status status="PASS" starttime="20251113 19:49:35.642" endtime="20251113 19:49:36.545"/>
-</suite>
-<status status="PASS" starttime="20251113 19:49:35.640" endtime="20251113 19:49:36.546"/>
-</suite>
-<status status="PASS" starttime="20251113 19:49:35.603" endtime="20251113 19:49:36.547"/>
+<test id="s1-t2" name="Reverse Case Basic String" line="13">
+<kw name="Set Variable" library="BuiltIn">
+<var>${input_str}</var>
+<arg>Hello</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20251115 11:54:06.211" level="INFO">${input_str} = Hello</msg>
+<status status="PASS" starttime="20251115 11:54:06.210" endtime="20251115 11:54:06.211"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${expected_rev_str}</var>
+<arg>olleH</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20251115 11:54:06.212" level="INFO">${expected_rev_str} = olleH</msg>
+<status status="PASS" starttime="20251115 11:54:06.211" endtime="20251115 11:54:06.212"/>
+</kw>
+<kw name="Reverse Given String" library="rerverseofstr">
+<var>${rev_str}</var>
+<arg>${input_str}</arg>
+<kw name="Evaluate" library="BuiltIn">
+<var>${rev}</var>
+<arg>'${text}'[::-1]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20251115 11:54:06.213" level="INFO">${rev} = olleH</msg>
+<status status="PASS" starttime="20251115 11:54:06.213" endtime="20251115 11:54:06.213"/>
+</kw>
+<msg timestamp="20251115 11:54:06.214" level="INFO">${rev_str} = olleH</msg>
+<status status="PASS" starttime="20251115 11:54:06.212" endtime="20251115 11:54:06.214"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${expected_rev_str}</arg>
+<arg>${rev_str}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20251115 11:54:06.214" endtime="20251115 11:54:06.214"/>
+</kw>
+<tag>002</tag>
+<tag>sanity</tag>
+<tag>SMO_003</tag>
+<status status="PASS" starttime="20251115 11:54:06.210" endtime="20251115 11:54:06.214"/>
+</test>
+<test id="s1-t3" name="Reverse Case Basic with number String" line="22">
+<kw name="Set Variable" library="BuiltIn">
+<var>${input_str}</var>
+<arg>Hello123</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20251115 11:54:06.216" level="INFO">${input_str} = Hello123</msg>
+<status status="PASS" starttime="20251115 11:54:06.216" endtime="20251115 11:54:06.216"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${expected_rev_str}</var>
+<arg>321olleH</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20251115 11:54:06.217" level="INFO">${expected_rev_str} = 321olleH</msg>
+<status status="PASS" starttime="20251115 11:54:06.217" endtime="20251115 11:54:06.217"/>
+</kw>
+<kw name="Reverse Given String" library="rerverseofstr">
+<var>${rev_str}</var>
+<arg>${input_str}</arg>
+<kw name="Evaluate" library="BuiltIn">
+<var>${rev}</var>
+<arg>'${text}'[::-1]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20251115 11:54:06.218" level="INFO">${rev} = 321olleH</msg>
+<status status="PASS" starttime="20251115 11:54:06.218" endtime="20251115 11:54:06.218"/>
+</kw>
+<msg timestamp="20251115 11:54:06.218" level="INFO">${rev_str} = 321olleH</msg>
+<status status="PASS" starttime="20251115 11:54:06.217" endtime="20251115 11:54:06.218"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${expected_rev_str}</arg>
+<arg>${rev_str}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20251115 11:54:06.219" endtime="20251115 11:54:06.219"/>
+</kw>
+<tag>003</tag>
+<tag>regression</tag>
+<tag>sanity</tag>
+<tag>SMO_007</tag>
+<tag>smoke</tag>
+<status status="PASS" starttime="20251115 11:54:06.215" endtime="20251115 11:54:06.220"/>
+</test>
+<status status="PASS" starttime="20251115 11:54:06.118" endtime="20251115 11:54:06.220"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">001</stat>
+<stat pass="1" fail="0" skip="0">002</stat>
+<stat pass="1" fail="0" skip="0">003</stat>
+<stat pass="2" fail="0" skip="0">regression</stat>
+<stat pass="2" fail="0" skip="0">sanity</stat>
+<stat pass="1" fail="0" skip="0">SMO_003</stat>
+<stat pass="1" fail="0" skip="0">SMO_007</stat>
+<stat pass="1" fail="0" skip="0">SMO_009</stat>
+<stat pass="1" fail="0" skip="0">smoke</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Robot Proj">Robot Proj</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Tests">Robot Proj.Tests</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Users">Robot Proj.Tests.Users</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1-s1-s1" name="Users">Robot Proj.Tests.Users.Users</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="Reverse Of Tring">Reverse Of Tring</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20251113 19:49:36.539" level="WARN">Keyword 'RequestsLibrary.To Json' is deprecated. Please use ${resp.json()} instead. Have a look at the improved HTML output as pretty printing replacement.</msg>
 </errors>
 </robot>
